@@ -1,0 +1,200 @@
+﻿<Page x:Class="ClothingStore.AdverstiningCalcs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClothingStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdverstiningCalcs"
+      Height="1080" 
+      Width="1920">
+
+    <Grid Background="White">
+        <TextBlock FontFamily="Gosha Sans" FontWeight="Light" Text="Стоимость рекламы" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" FontSize="40" Foreground="#FF343A40"/>
+
+        <DataGrid x:Name="calcGrid" HorizontalAlignment="Left" Height="620" Margin="118,394,0,0" VerticalAlignment="Top" Width="1722" BorderThickness="0" Style="{DynamicResource MaterialDesignDataGrid}"  Background="#DEE2E6" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost}"/>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Delete" Content="Удалить"  Click="Delete_Click"  Background="#CED4DA" BorderBrush="#CED4DA" Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="adverstiningBox"  BorderThickness="0" Height="50" Margin="118,329,1502,0" TextWrapping="Wrap" Text="Стоимость рекламы" Width="300" FontFamily="Dubai" Background="#FFCED4DA" TextAlignment="Left" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" PreviewTextInput="adverstiningBox_PreviewTextInput">
+            <TextBox.Style>
+
+                <Style TargetType="{x:Type TextBox}">
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="10" Background="#FFCED4DA" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+
+
+                    </Setter>
+
+                </Style>
+            </TextBox.Style>
+
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border Width="300" Height="50" CornerRadius="10" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Border>
+                        <ScrollViewer x:Name="PART_ContentHost" IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" BorderThickness="0" Margin="5,10,1,1"/>
+                    </Grid>
+
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="444,339,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" FontFamily="Gosha Sans" FontWeight="Light" FontSize="10" Foreground="#FF343A40">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="7" Color="#FFC5C5C5" ShadowDepth="3" Direction="270" Opacity="0.8" RenderingBias="Quality"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Background" Value="#ADB5BD"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#dee2e6"/>
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="90" Height="35" CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBox x:Name="search" BorderThickness="0" Height="50" Margin="675,329,945,0" TextWrapping="Wrap" Text="Найти по стоимости" Width="300" FontFamily="Dubai" Background="#FFCED4DA" TextAlignment="Left" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" PreviewTextInput="search_PreviewTextInput">
+            <TextBox.Style>
+
+                <Style TargetType="{x:Type TextBox}">
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="10" Background="#FFCED4DA" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+
+
+                    </Setter>
+
+                </Style>
+            </TextBox.Style>
+
+            <TextBox.Template>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border Width="300" Height="50" CornerRadius="10" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Border>
+                        <ScrollViewer x:Name="PART_ContentHost" IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" BorderThickness="0" Margin="5,10,1,1"/>
+                    </Grid>
+
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+        <Button x:Name="searchBtn" Content="Поиск" HorizontalAlignment="Left" Margin="991,339,0,0" VerticalAlignment="Top" Width="90" Click="searchBtn_Click" FontFamily="Gosha Sans" FontWeight="Light" FontSize="10" Foreground="#FF343A40">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="7" Color="#FFC5C5C5" ShadowDepth="3" Direction="270" Opacity="0.8" RenderingBias="Quality"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Background" Value="#ADB5BD"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#dee2e6"/>
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="90" Height="35" CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Content="Показать все" HorizontalAlignment="Left" Margin="1102,339,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1" FontFamily="Gosha Sans" FontWeight="Light" FontSize="10" Foreground="#FF343A40">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="7" Color="#FFC5C5C5" ShadowDepth="3" Direction="270" Opacity="0.8" RenderingBias="Quality"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Background" Value="#ADB5BD"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#dee2e6"/>
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="90" Height="35" CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock x:Name="warningBox" HorizontalAlignment="Center" Margin="0,-650,0,0" TextWrapping="Wrap" Text="" Foreground="Red" FontSize="20" TextAlignment="Center"  VerticalAlignment="Center"/>
+        <Button x:Name="btnReset" Content="Восстановить" HorizontalAlignment="Left" Margin="1750,340,0,0" VerticalAlignment="Top" Width="90" FontFamily="Gosha Sans" FontWeight="Light" FontSize="10" Foreground="#FF343A40" Click="btnReset_Click">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="7" Color="#FFC5C5C5" ShadowDepth="3" Direction="270" Opacity="0.8" RenderingBias="Quality"/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Background" Value="#ADB5BD"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#dee2e6"/>
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="90" Height="35" CornerRadius="10" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+    </Grid>
+</Page>
